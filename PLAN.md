@@ -61,7 +61,7 @@ Phase 2 — Content & Verification
   - Path deploy (not subdomain) per standing subdomain policy
   - Files live at site/public/standards/ in lailara-website repo
   - Update path: re-copy index.html, styles.css, diagrams/, and dist PDF (as data-standards-cheat-sheet.pdf) on any source change
-- [ ] Add to portfolio /work page under Free Tools
+- [x] Added to /work page — done in website repo (commit e0f4118), card under 'Compliance Guides'. NOTE: PLAN said 'Free Tools'; card landed under 'Compliance Guides' — placement TBD, separate website edit if it moves.
 - [ ] Update project-health tracker
 - Launch post: drafted in chat, not CC (CC writes weak LinkedIn copy)
 
