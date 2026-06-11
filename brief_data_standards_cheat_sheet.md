@@ -97,7 +97,7 @@ N/A — it's free and meant to be used. The "defense" is that the cheat sheet de
 ### 7. Marketing / Distribution
 
 - **Portfolio:** listed under Free Tools on /work.
-- **LinkedIn:** post the GTIN-anatomy diagram. Hook: "Every item setup form you've ever filled out, explained on one page."
+- **LinkedIn:** launch post drafted in chat, not CC (CC writes weak LinkedIn copy)
 - **SEO:** this IS the SEO play — target the question-shaped queries. Anchor-linked sections rank individually.
 - **Lead capture:** keep the page fully open; optionally email-gate only the print PDF. Decide against gating if it suppresses sharing.
 

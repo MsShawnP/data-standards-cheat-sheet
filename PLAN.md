@@ -63,7 +63,7 @@ Phase 2 — Content & Verification
   - Update path: re-copy index.html, styles.css, diagrams/, and dist PDF (as data-standards-cheat-sheet.pdf) on any source change
 - [ ] Add to portfolio /work page under Free Tools
 - [ ] Update project-health tracker
-- [ ] LinkedIn post — hook: "Every item setup form you've ever filled out, explained on one page."
+- Launch post: drafted in chat, not CC (CC writes weak LinkedIn copy)
 
 ---
 
