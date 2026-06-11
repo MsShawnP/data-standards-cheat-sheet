@@ -57,7 +57,10 @@ Phase 2 — Content & Verification
   - Command: `npm run pdf` → `dist/lailara-data-standards-cheat-sheet.pdf`
   - File size: 643 KB (0.63 MB) — email-safe
   - Text diff: 3 tokens hidden (TOC, verified-stamp); tool links visible in print with URL reveal — no unintentional content loss
-- [ ] Deploy to standards.lailarallc.com (or path — see DECISIONS.md)
+- [x] Deploy to lailarallc.com/standards ✓ — June 11, 2026
+  - Path deploy (not subdomain) per standing subdomain policy
+  - Files live at site/public/standards/ in lailara-website repo
+  - Update path: re-copy index.html, styles.css, diagrams/, and dist PDF (as data-standards-cheat-sheet.pdf) on any source change
 - [ ] Add to portfolio /work page under Free Tools
 - [ ] Update project-health tracker
 - [ ] LinkedIn post — hook: "Every item setup form you've ever filled out, explained on one page."
