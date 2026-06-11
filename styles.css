@@ -472,9 +472,14 @@ p.footnote {
   }
 
   .toc { display: none; }
-  .tool-link, .section-tools { display: none; }
   /* Download PDF link is non-functional in PDF; date appears in footer */
   .verified-stamp { display: none; }
+  /* Tool links: show in print as hyperlinks + visible URL for printed copies */
+  a.tool-link::after {
+    content: " (" attr(href) ")";
+    font-size: smaller;
+    color: #595959;
+  }
 
   h1 { font-size: 22pt; }
   h2 { font-size: 14pt; page-break-after: avoid; break-after: avoid; }

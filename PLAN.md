@@ -55,8 +55,8 @@ Phase 2 — Content & Verification
 - [x] PDF generation ✓ — June 11, 2026
   - Renderer: playwright-core + system Chrome 149 (no separate browser download)
   - Command: `npm run pdf` → `dist/lailara-data-standards-cheat-sheet.pdf`
-  - File size: 605 KB (0.59 MB) — email-safe
-  - Text diff: 7 tokens hidden (TOC, tool links, verified-stamp) — no unintentional content loss
+  - File size: 643 KB (0.63 MB) — email-safe
+  - Text diff: 3 tokens hidden (TOC, verified-stamp); tool links visible in print with URL reveal — no unintentional content loss
 - [ ] Deploy to standards.lailarallc.com (or path — see DECISIONS.md)
 - [ ] Add to portfolio /work page under Free Tools
 - [ ] Update project-health tracker
