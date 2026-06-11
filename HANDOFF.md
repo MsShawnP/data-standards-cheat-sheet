@@ -58,3 +58,15 @@ Scaffold only — no logic, no tests needed.
 **Next:** Write LinkedIn launch post in chat against https://lailarallc.com/standards. Separately: decide whether /work card should move from Compliance Guides to Free Tools (noted in PLAN.md).
 
 ---
+
+## 2026-06-11 19:45
+
+**Started from:** Phase 3 in progress — print CSS and mobile done, PDF pipeline built, deploy/Gate 2/tracking cleanup remaining.
+
+**Did:** Tool-link URL reveal in print CSS + PDF re-render; self-hosted fonts (PD 700 + SS3 variable, 52 KB); deployed to lailarallc.com/standards (static files in website repo, rewrite, sitemap); Gate 2 wiring — /work Compliance Guides card, footer link, three inbound one-liners; project tracking cleanup (LinkedIn struck, /work task reconciled to e0f4118, health tracker updated).
+
+**State:** Source repo fully clean, Phase 3 complete. Website repo: /standards live, Gate 2 wired; EDI blog post edit + scripts/deploy.js intentionally left uncommitted (separate sessions). PLAN.md status header still says "Phase 2 pending" — stale, not yet updated.
+
+**Next:** LinkedIn launch post in chat against https://lailarallc.com/standards. Then: decide /work card placement (Compliance Guides vs Free Tools). Clean up PLAN.md stale lines (Follow-up edits section done, subdomain URL stale, status header wrong).
+
+---

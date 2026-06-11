@@ -1,13 +1,13 @@
 # Data Standards Cheat Sheet — PLAN
 
 **Tier:** 4 (lead-gen / reference artifact)
-**Status:** Parts 1–5 complete · Phase 3 pending
+**Status:** Shipped — lailarallc.com/standards · Phase 3 complete · June 11, 2026
 
 ---
 
 ## Current Focus
 
-Phase 2 — Content & Verification
+Maintenance — see Recurring maintenance section
 
 ---
 
