@@ -1,0 +1,34 @@
+# Environment
+.env
+.env.*
+
+# Python (Quarto/PDF build)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Quarto build output
+_quarto/
+/.quarto/
+*_files/
+*.pdf
+
+# Node / static server tooling (if added)
+node_modules/
+.parcel-cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.key
+credentials.*
+secrets.*

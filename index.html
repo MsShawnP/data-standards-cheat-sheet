@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Specialty Food Data Standards Cheat Sheet — Lailara LLC</title>
+  <meta name="description" content="GTIN, GDSN, retailer item setup, and freight class — one reference page for specialty food operators. Verified against primary sources.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ====================================================================
+       Header
+       ==================================================================== -->
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-name">Lailara LLC</span>
+      <span class="brand-subtitle">Data Standards Reference</span>
+    </div>
+    <h1>The Specialty Food Data Standards Cheat Sheet</h1>
+    <p class="header-description">
+      GTIN anatomy, GDSN syndication, retailer item-setup requirements, and
+      freight-class logic — one reference page for specialty food operators.
+      No vendor marketing. No tabs.
+    </p>
+    <p class="verified-stamp">
+      Verified June 2026 &nbsp;·&nbsp;
+      <a href="data-standards-cheat-sheet.pdf" class="pdf-link">Download PDF</a>
+    </p>
+  </header>
+
+  <!-- ====================================================================
+       Table of contents
+       ==================================================================== -->
+  <nav class="toc" aria-label="Page sections">
+    <a href="#identification">1. Identification</a>
+    <a href="#syndication">2. Syndication</a>
+    <a href="#retailers">3. Retailer Quick-Reference</a>
+    <a href="#compliance">4. Compliance Horizon</a>
+    <a href="#logistics">5. Logistics Numbers</a>
+  </nav>
+
+  <!-- ====================================================================
+       Main content
+       ==================================================================== -->
+  <main>
+
+    <!-- ----------------------------------------------------------------
+         Part 1 — Identification
+         ---------------------------------------------------------------- -->
+    <section id="identification" class="section">
+      <p class="section-label">Part 1</p>
+      <h2>Identification</h2>
+
+      <h3>GTIN Formats — Four Lengths, One Standard</h3>
+
+      <!-- TODO: Replace text table with GTIN anatomy SVG diagram (diagrams/gtin-anatomy.svg) -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Format</th>
+              <th>Digits</th>
+              <th>Barcode type</th>
+              <th>Primary use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>GTIN-8</strong></td>
+              <td>8</td>
+              <td>EAN-8</td>
+              <td>Small items, outside North America</td>
+            </tr>
+            <tr>
+              <td><strong>GTIN-12</strong></td>
+              <td>12</td>
+              <td>UPC-A</td>
+              <td>Consumer units in North America — the everyday "UPC"</td>
+            </tr>
+            <tr>
+              <td><strong>GTIN-13</strong></td>
+              <td>13</td>
+              <td>EAN-13</td>
+              <td>Consumer units outside North America — the everyday "EAN"</td>
+            </tr>
+            <tr>
+              <td><strong>GTIN-14</strong></td>
+              <td>14</td>
+              <td>ITF-14 / GS1-128</td>
+              <td>Cases, inner packs, groupings — never scanned at consumer POS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Terminology cleanup:</strong> "UPC" and "barcode" are colloquial terms for GTIN-12 in North America. "EAN" means GTIN-13. "GTIN" is the umbrella standard that covers all four formats. The GS1 system uses GTIN everywhere; your retailer forms may say "UPC" but mean GTIN-12.</p>
+
+      <h3>GTIN-14 Anatomy — Indicator Digit</h3>
+
+      <p>A GTIN-14 is built from a GTIN-12 or GTIN-13 with one digit prepended — the indicator digit — and a recalculated check digit.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Indicator digit</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>1 – 8</strong></td><td>Different packaging levels (inner pack, case, display shipper, pallet, etc.). GS1 assigns no fixed meaning per digit — each brand assigns these to its own hierarchy levels. One company's "1" may be an inner pack; another's may be a full case.</td></tr>
+            <tr><td><strong>9</strong></td><td>Variable-measure item — weight or quantity varies at point of sale (bulk, catch-weight)</td></tr>
+            <tr><td><strong>0</strong></td><td>Not a valid true indicator digit. A 14-digit string starting with 0 is a padded GTIN-12 or GTIN-13, not a GTIN-14. Adding filler zeros to a shorter GTIN does not create a new identifier.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Source: GS1 US — <em>An Introduction to the Global Trade Item Number (GTIN)</em>, Release 2.1</p>
+
+      <h3>Check Digit Algorithm</h3>
+
+      <p>Every GTIN ends in a single check digit calculated the same way, regardless of length.</p>
+
+      <p><strong>Algorithm (works for GTIN-8, -12, -13, and -14):</strong></p>
+      <div class="formula-block">
+        Step 1: Write out all digits except the check digit.<br>
+        Step 2: From the <em>rightmost</em> digit, assign alternating weights: ×3, ×1, ×3, ×1 … moving left.<br>
+        Step 3: Multiply each digit by its weight. Sum all products.<br>
+        Step 4: Check digit = nearest multiple of 10 at or above the sum, minus the sum.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Equivalently: (10 &minus; (sum mod 10)) mod 10
+      </div>
+
+      <p><strong>Worked example</strong> (GTIN-13 without check digit: <code>629104150021</code>):</p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>6</th><th>2</th><th>9</th><th>1</th><th>0</th><th>4</th>
+              <th>1</th><th>5</th><th>0</th><th>0</th><th>2</th><th>1</th>
+              <th>Check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Weight</td>
+              <td>×1</td><td>×3</td><td>×1</td><td>×3</td><td>×1</td><td>×3</td>
+              <td>×1</td><td>×3</td><td>×1</td><td>×3</td><td>×1</td><td>×3</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Product</td>
+              <td>6</td><td>6</td><td>9</td><td>3</td><td>0</td><td>12</td>
+              <td>1</td><td>15</td><td>0</td><td>0</td><td>2</td><td>3</td>
+              <td><strong>= 57</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Next multiple of 10 above 57 = 60 &nbsp;→&nbsp; check digit = 60 &minus; 57 = <strong>3</strong></p>
+      <p>Full GTIN-13: <strong>6291041500213</strong></p>
+      <p class="footnote">Source: GS1 US — <em>Check Digit Calculator</em> (official document)</p>
+
+      <h3>Packaging Hierarchy — Which GTIN Goes Where</h3>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Pack level</th>
+              <th>GTIN format</th>
+              <th>Where it appears</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Each (consumer unit)</td><td>GTIN-12 or GTIN-13</td><td>POS barcode on the retail package; every retailer item-setup form</td></tr>
+            <tr><td>Inner pack</td><td>GTIN-14 (indicator 1–8)</td><td>Wholesale/distributor ordering; some retailer forms require it</td></tr>
+            <tr><td>Case (master carton)</td><td>GTIN-14 (indicator 1–8)</td><td>Warehouse receiving, EDI 856 ASN, warehouse management systems</td></tr>
+            <tr><td>Pallet (SSCC)</td><td>SSCC — 18 digits, not a GTIN</td><td>Shipping labels (GS1-128), EDI 856; identifies a specific shipment, not a product</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>SSCC vs GTIN-14</h3>
+
+      <p>Both are 14-digit-ish numbers on shipping labels and both involve cases — this is the most common source of confusion.</p>
+      <p>A <strong>GTIN-14 identifies a product</strong> (what's in the box — 12-count case of SKU X). It's permanent and reusable across every shipment of that case configuration.</p>
+      <p>An <strong>SSCC (Serial Shipping Container Code) identifies a specific physical pallet or container</strong> in a specific shipment. It's 18 digits, generated per shipment, and appears on the GS1-128 pallet label. Two pallets of the same product have different SSCCs. <!-- TODO: Verify SSCC detail against GS1 GenSpecs --></p>
+
+      <div class="section-tools">
+        <a href="https://lailarallc.com/tools/gtin-validator" class="tool-link">GTIN Validator →</a>
+        <a href="https://lailarallc.com/tools/dimension-weight" class="tool-link">Dimension &amp; Weight Integrity →</a>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------
+         Part 2 — Syndication
+         TODO: Note for Part 2 content — Syndigo acquired 1WorldSync (2024).
+         The three-provider landscape (Syndigo, Salsify, 1WorldSync) reflects
+         Kroger's current certified list as of April 2025. Verify whether
+         Syndigo/1WorldSync now operate as one entity for Kroger purposes
+         before publishing Part 2 provider comparison.
+         ---------------------------------------------------------------- -->
+    <section id="syndication" class="section">
+      <p class="section-label">Part 2</p>
+      <h2>Syndication</h2>
+
+      <h3>How GDSN works</h3>
+      <!-- TODO: Insert GDSN flow diagram (diagrams/gdsn-flow.svg) -->
+      <div class="diagram-placeholder" aria-hidden="true">
+        [GDSN flow diagram — diagrams/gdsn-flow.svg]
+      </div>
+      <p>Product data travels through GDSN along a fixed path: a brand publishes a record to a certified data pool, the pool validates and routes it to every subscribed recipient, and each recipient's system sends back a Catalogue Item Confirmation (CIC). GS1 International sets the standards — GTIN formats, GLN registrations, GPC classification codes, mandatory attribute lists — that the pool enforces. Pool operators (Syndigo, Salsify, and others) run the routing infrastructure; the rules inside the pipe come from GS1, not from any pool operator.</p>
+      <p>GDSN does not carry pricing, terms, or retailer-specific promotional fields. Those attributes live in separate portal uploads (Supplier One, SVHarbor, KeHE CONNECT) alongside the GDSN-synced record.</p>
+
+      <div class="callout info">
+        2D barcodes add GTIN, batch/lot, expiration date, and a GS1 Digital Link URL to your packaging &mdash; all fed from the same product master that populates GDSN. See <a href="#compliance">Part 4 &mdash; Compliance Horizon</a> and the dedicated <a href="https://lailarallc.com/gs1-sunrise-2027">GS1 Sunrise 2027 guide</a> for the packaging implications.
+      </div>
+
+      <h3>Data pool providers</h3>
+      <p>A GDSN data pool is the GS1-certified intermediary that validates your item record and routes it to retail and distributor recipients. Kroger's Item API (KIA) requires brands to choose from three named providers; other retailers accept any GS1-certified pool.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>GDSN pool</th>
+              <th>Retailer mandates</th>
+              <th>Pricing model</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Syndigo</strong><br><span style="font-size:12px;color:var(--text-secondary)">Acquired 1WorldSync, September 2025</span></td>
+              <td>GS1-certified; dominant US pool post-acquisition &mdash; 97% of US GLNs, covers 90% of top 20 US retailers. Pre-merger legacy pool publication success rates ran ~70%; Syndigo claims 90%.</td>
+              <td><strong>Kroger Our Brands and Harris Teeter</strong> suppliers must use Syndigo. No other retailer-specific mandates publicly documented.</td>
+              <td class="gotcha">Varies &mdash; structured as revenue-based, SKU-count, or per-recipient tiers depending on contract. Precise pricing not publicly available.</td>
+            </tr>
+            <tr>
+              <td><strong>Salsify</strong></td>
+              <td>GS1-certified data pool; operates independently from Syndigo; interoperable with other GDSN pools. Part of Salsify's broader PIM and product experience management platform. 56,000+ GTINs created; 500+ unique destinations reached.</td>
+              <td>Kroger: one of three KIA certified providers. No other retailer-specific mandates publicly documented.</td>
+              <td class="gotcha">Not publicly available.</td>
+            </tr>
+            <tr>
+              <td><strong>1WorldSync</strong><br><span style="font-size:12px;color:var(--text-secondary)">Now Syndigo</span></td>
+              <td>Absorbed by Syndigo, September 2025. Migration described as "phased &mdash; no public dates." Existing 1WorldSync contracts honored per Syndigo's stated commitments.</td>
+              <td>Still listed as a separate Kroger KIA certified provider in the April 2025 FAQ. Kroger had not publicly updated the FAQ to reflect the consolidation as of June 2026.</td>
+              <td class="gotcha">Not applicable post-acquisition. Renewal conversations now happen with Syndigo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Sources: Syndigo acquisition and pool stats &mdash; syndigo.com/news/syndigo-acquires-1worldsync/; syndigo.com/blog/legacy-gdsn-challenges/ &middot; Salsify GDSN pool &mdash; salsify.com/pxm/gdsn (accessed June 2026) &middot; Pricing model shape &mdash; SPS Commerce (spscommerce.com/community/articles/gdsn-data-synchronization) &middot; Kroger certified providers &mdash; KIA FAQ (thekrogerco.com, April 3, 2025) &middot; Harris Teeter mandate &mdash; thekrogerco.com/vendor-suppliers/vendors/retail-vendors/ (June 2026; see <a href="https://lailarallc.com/blog/syndigo-vs-1worldsync">acquisition context</a>) &middot; 1WorldSync integration timeline &mdash; syndigo.com/1worldsync/syndigo-1worldsync-integration-faq/</p>
+
+      <h3>The rejection attributes that matter</h3>
+      <p>GDSN validates format and presence &mdash; not accuracy. The errors below either block publication immediately (visible, fixable before any product ships) or pass validation but generate chargebacks once the item is in distribution (silent, cumulative). The silent errors cost more. See the full <a href="https://lailarallc.com/blog/gdsn-attribute-errors-retailer-rejection">GDSN rejection attribute breakdown</a> for worked examples and cost context.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Attribute</th>
+              <th>What triggers rejection</th>
+              <th>Food-brand note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Brand name</strong></td>
+              <td>Doesn&rsquo;t match the recipient&rsquo;s approved brand list exactly &mdash; legal suffix, capitalization, and spacing all matter. &ldquo;Meridian Foods LLC&rdquo; and &ldquo;Meridian Foods&rdquo; are different strings.</td>
+              <td>Check the retailer&rsquo;s brand registration, not your own records. If the brand isn&rsquo;t registered with the recipient, the publication stalls regardless of what the GDSN record says.</td>
+            </tr>
+            <tr>
+              <td><strong>GLN (three required)</strong></td>
+              <td>Manufacturer GLN, information provider GLN, or brand owner GLN missing. All three must be populated. Many brands populate one and leave the other two blank.</td>
+              <td>Register GLNs via GS1 Company Database (GEPIR). The same company may need multiple GLNs if it holds multiple roles &mdash; e.g., acting as its own information provider.</td>
+            </tr>
+            <tr>
+              <td><strong>GTIN hierarchy</strong></td>
+              <td>Wrong parent-child link, or a case GTIN not yet registered in GS1 Global Registry. Common when a new pack configuration is added and linked to the wrong unit level.</td>
+              <td>Adding a 12-count club-store case alongside an existing 6-count? The new case GTIN must be registered in GS1 Global Registry before publication; linking it to the wrong unit level blocks the entire record.</td>
+            </tr>
+            <tr>
+              <td><strong>Barcode type</strong></td>
+              <td>gs1TradeItemIdentificationKeyValue doesn&rsquo;t match the recipient&rsquo;s expected barcode type. A UPC-A submitted where the retailer expects EAN-13 fails even though the underlying number is valid.</td>
+              <td>US food brands almost always publish UPC-A (GTIN-12). Confirm the recipient&rsquo;s expected type before first publication &mdash; mismatches don&rsquo;t always produce a clear error message.</td>
+            </tr>
+            <tr>
+              <td><strong>Measurement units</strong></td>
+              <td>Dimensions or weights stored in one unit in the ERP, converted to another in the GDSN record. Rounding after conversion introduces a mismatch that passes validation but causes dimension chargebacks at receiving.</td>
+              <td>Store and publish in one unit system. Conversion at publication time is the source of the error &mdash; the retailer portal often stores values in a different unit than the GDSN record.</td>
+            </tr>
+            <tr>
+              <td><strong>Allergen declarations</strong></td>
+              <td>Missing or incomplete for food categories. A record declaring &ldquo;Contains: milk&rdquo; but omitting soy passes GDSN validation &mdash; the gap surfaces at UNFI or KeHE downstream, not at publication.</td>
+              <td>A missing allergen field is the attribute most likely to be escalated beyond standard rejection. Both UNFI and KeHE apply their own allergen validation rules on top of GDSN&rsquo;s. See <a href="https://lailarallc.com/blog/unfi-vs-kehe-item-data-requirements-comparison">UNFI vs. KeHE item data comparison</a>.</td>
+            </tr>
+            <tr>
+              <td><strong>Net content</strong></td>
+              <td>Missing or misformatted. Required for all food items. Format must match the recipient&rsquo;s expected unit (oz vs.&nbsp;g).</td>
+              <td>Net content and net weight are different fields. Populating one and leaving the other blank is a common source of rejection for products with both volume and weight measurements.</td>
+            </tr>
+            <tr>
+              <td><strong>Packaging material type</strong></td>
+              <td>Value not accepted by the recipient, or field left blank. Accepted values are enumerated (CERAMIC, CLOTH_OR_FABRIC, COMPOSITE, GLASS, etc.); free-text entries fail.</td>
+              <td>Sustainability reporting requirements are driving more recipients to enforce this field. Brands that left it optional before 2024 are increasingly seeing rejections in 2025&ndash;2026.</td>
+            </tr>
+            <tr>
+              <td><strong>Country of origin</strong></td>
+              <td>Missing or wrong. Required in most food categories under US regulations.</td>
+              <td>Multi-ingredient products with components from different countries typically require the country of the final manufacturing step, not the country of each ingredient.</td>
+            </tr>
+            <tr>
+              <td><strong>Effective date</strong></td>
+              <td>Not advanced when republishing an update to an existing record. The effective date must be later than the previous publication date &mdash; an overlooked field causes rejection that has nothing to do with the data itself.</td>
+              <td>A packaging redesign or formula change flowing through GDSN requires an updated effective date. Build this into the change process before the first update, not after the first rejection.</td>
+            </tr>
+            <tr>
+              <td><strong>Description fields</strong></td>
+              <td>Short description, functional name, or additional item description missing, truncated, or containing invalid characters. Character limits and prohibited characters vary by recipient.</td>
+              <td>Em dashes, curly quotes, and non-ASCII characters in product names are common culprits. The rejection message names the field but not the specific character &mdash; compare character-by-character against the recipient&rsquo;s spec.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warn">
+        <strong>The silent errors cost more.</strong> Case dimensions that are wrong but correctly formatted, or allergen declarations that are populated but incomplete, pass the data pool without a flag. Each generates the same OTIF penalties as any other data mismatch &mdash; on every affected shipment, until someone reconciles the records. See <a href="https://lailarallc.com/blog/product-master-data-management-best-practices">12 Master Data Fields That Cause Most CPG Chargebacks</a> for the full cost analysis.
+      </div>
+
+      <p class="footnote">Sources: Brand name, GLN, barcode type, packaging material, country of origin, effective date, description fields &mdash; syndigo.com/blog/top-gdsn-data-errors/ (primary, accessed June 2026) &middot; Allergen declarations, net content, GTIN hierarchy, measurement units &mdash; lailarallc.com/blog/gdsn-attribute-errors-retailer-rejection (corroborated secondary; food-specific detail added) &middot; UNFI / KeHE allergen validation &mdash; lailarallc.com/blog/unfi-vs-kehe-item-data-requirements-comparison</p>
+
+      <h3>Publication states</h3>
+      <p>A GDSN record moves through two supplier-side workflow states and receives one of four CIC response statuses from each recipient.</p>
+
+      <dl>
+        <dt>Draft</dt>
+        <dd>Record is in the data pool but has not been published to any recipient. Editable freely &mdash; nothing is visible to retailers or distributors.</dd>
+
+        <dt>Published</dt>
+        <dd>Record has been submitted to one or more recipients. The pool has validated and routed it. A Catalogue Item Confirmation (CIC) is expected back from each recipient.</dd>
+
+        <dt>CIC: Received</dt>
+        <dd>Recipient&rsquo;s system has the record; pool-level validation passed; the retailer&rsquo;s internal audit is in progress. Not yet loaded into the item file.</dd>
+
+        <dt>CIC: Synchronized</dt>
+        <dd>Recipient accepted the record and loaded it into their system. The item is live. This is the terminal success state &mdash; no further action required.</dd>
+
+        <dt>CIC: Review&nbsp;/ Rejected</dt>
+        <dd>Record failed the recipient&rsquo;s validation or internal audit. A CIC999 message specifies the failed field. Correct the record, advance the effective date, and republish.</dd>
+      </dl>
+
+      <div class="callout info">
+        <strong>CIC: Received is not success &mdash; it is the waiting state.</strong> A record that stays in &ldquo;Received&rdquo; for more than a few business days without advancing to Synchronized or Review should be followed up with the recipient&rsquo;s vendor support. Silence is not acceptance.
+      </div>
+
+      <p class="footnote">Sources: CIC status definitions &mdash; 1WorldSync Dot Foods GDSN FAQ (1worldsync.com, 2023); SPS Commerce (spscommerce.com/community/articles/gdsn-data-synchronization)</p>
+
+      <div class="section-tools">
+        <a href="https://lailarallc.com/tools/item-setup-preflight" class="tool-link">Item Setup Pre-flight &rarr;</a>
+        <a href="https://lailarallc.com/gs1-sunrise-2027" class="tool-link">GS1 Sunrise 2027 &rarr;</a>
+        <a href="https://lailarallc.com/blog/syndigo-vs-1worldsync" class="tool-link">Syndigo / 1WorldSync Guide &rarr;</a>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------
+         Part 3 — Retailer Quick-Reference
+         ---------------------------------------------------------------- -->
+    <section id="retailers" class="section">
+      <p class="section-label">Part 3</p>
+      <h2>Retailer Quick-Reference</h2>
+
+      <p>Required hierarchy, portal name, and the one thing that trips up new vendors — per retailer.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Retailer</th>
+              <th>Portal / system</th>
+              <th>Required hierarchy</th>
+              <th>Keyed unit</th>
+              <th>Notorious gotcha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Walmart</strong></td>
+              <td>Supplier One (supplierone.walmart.com)<br><span style="font-size:12px;color:var(--text-secondary)">Replaced Item 360, September 2024</span></td>
+              <td>Each &rarr; Inner/Warehouse Pack &rarr; Case &rarr; Pallet; unique GTIN per level</td>
+              <td>Consumer unit (each)</td>
+              <td class="gotcha">Once an item is created in Walmart's catalog, its trade item hierarchy is permanent — an incorrect configuration can't be edited, only rebuilt as a new item, and changing the sellable quantity in a case requires acquiring a brand-new GTIN. Once GDSN-synced, dimensions also lock; corrections must flow through the data pool. (<a href="https://lailarallc.com/tools/dimension-weight" style="color:var(--navy)">Dimension &amp; Weight Integrity &rarr;</a>)</td>
+            </tr>
+            <tr>
+              <td><strong>Costco</strong></td>
+              <td>Vendor Hub (hub.costco.com)</td>
+              <td>Item UPC + Case GTIN</td>
+              <td>Consumer unit (member-facing pack)</td>
+              <td class="gotcha">Costco's item setup is buyer-driven and barely publicly documented — its notorious data landmines (ASN lot codes, quantity mismatches at ~$10/carton) surface at receiving, not at setup. <span style="font-size:12px;color:var(--text-secondary);font-style:normal">[EDI-vendor documentation, not Costco primary]</span></td>
+            </tr>
+            <tr>
+              <td><strong>Whole Foods Market</strong></td>
+              <td>Vendor Internet Portal / VIP (vip.wholefoods.com) for cost file maintenance; new item setup via Amazon Grocery Central (grocerycentral.amazon.com)</td>
+              <td>Consumer unit; 13-digit barcode required for all packaged products</td>
+              <td>Consumer unit (each)</td>
+              <td class="gotcha">—<br><span style="font-size:12px;color:var(--text-secondary);font-style:normal">WFM's US item-setup documentation is supplier-login-gated; no US primary-source gotcha verifiable for this reference.</span></td>
+            </tr>
+            <tr>
+              <td><strong>UNFI</strong></td>
+              <td>SVHarbor (svharbor.unfi.com)</td>
+              <td>Consumer unit published via GDSN to GLN 0041130079153 ("UNFI Corporate"); Item Proposal in SVHarbor required to activate</td>
+              <td>Consumer unit (each)</td>
+              <td class="gotcha">Publishing to GLN 0041130079153 does not process the item — a separate Item Proposal must be submitted in SVHarbor, or the product sits inactive with no rejection notice.</td>
+            </tr>
+            <tr>
+              <td><strong>KeHE</strong></td>
+              <td>KeHE CONNECT&reg; (connectsupplier.kehe.com)</td>
+              <td>Each + Sellable Case Pack + Warehouse Receiving Pack — every level requires its own unique GTIN-14 (ITF-14)</td>
+              <td>Case (ordering unit)</td>
+              <td class="gotcha">KeHE requires a unique GTIN-14 at every packaging level — creating it is solely the supplier's responsibility. The consumer unit UPC (GTIN-12) cannot serve as the case GTIN; errors surface at warehouse receiving, not at setup time.</td>
+            </tr>
+            <tr>
+              <td><strong>Kroger</strong></td>
+              <td>Kroger Item API (KIA)<br><span style="font-size:12px;color:var(--text-secondary)">Certified providers: Syndigo, Salsify, 1WorldSync &middot; legacy VIP mid-phase-out</span></td>
+              <td>Consumer unit GTIN via certified provider syndication (Syndigo / Salsify / 1WorldSync)</td>
+              <td>Consumer unit (each)</td>
+              <td class="gotcha">Kroger no longer has one front door — new items now syndicate through one of three certified providers (Syndigo, Salsify, 1WorldSync) via the Kroger Item API, the legacy VIP portal is mid-phase-out, and Our Brands / Harris Teeter items can only go through Syndigo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;color:var(--text-secondary);margin-top:12px;margin-bottom:4px"><em>Retailer systems verified June 2026 — these get renamed; check before relying.</em></p>
+      <p class="footnote">Sources: Walmart — Supplier One HelpDocs (supplierone.helpdocs.io, confirmed via search-result text, June 2026) &middot; Costco — Vendor Hub (hub.costco.com) &middot; Whole Foods Market — vip.wholefoods.com; grocerycentral.amazon.com (US portals confirmed; content login-gated) &middot; UNFI — 1WorldSync UNFI GDSN FAQ (updated 2024-02-19) &middot; KeHE — KeHE AOM &amp; GTIN Requirements, corroborated via Presence Marketing (pmidpi.com), 2025 &middot; Kroger — KIA FAQ (thekrogerco.com, April 3, 2025); thekrogerco.com/vendor-suppliers/vendors/retail-vendors/ (June 2026)</p>
+
+      <div class="section-tools">
+        <a href="https://lailarallc.com/tools/item-setup-preflight" class="tool-link">Item Setup Pre-flight →</a>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------
+         Part 4 — Compliance Horizon
+         ---------------------------------------------------------------- -->
+    <section id="compliance" class="section">
+      <p class="section-label">Part 4</p>
+      <h2>Compliance Horizon</h2>
+
+      <h3>GS1 Sunrise 2027 — 2D Barcodes</h3>
+
+      <p>Sunrise 2027 is an <strong>industry readiness milestone, not a government mandate.</strong> GS1 is a voluntary standards body with no enforcement authority. The goal: all retail POS systems capable of reading GS1-compliant 2D barcodes by end of 2027. <strong>UPC linear barcodes remain valid at retail after the 2027 date.</strong></p>
+
+      <p>The commercial stakes are real: over 60 major retailers — including Walmart, Target, and Kroger — have publicly committed to POS readiness by the deadline. Non-readiness creates delist risk and reduced shelf placement, not a regulatory fine.</p>
+
+      <p><strong>What counts as a compliant 2D barcode.</strong> Two approved formats: (1) a QR code with GS1 Digital Link URI syntax encoding your GTIN; (2) a GS1 DataMatrix with GS1 Application Identifiers. A marketing QR code pointing to a website URL without GS1 structure cannot be parsed at POS and does not satisfy the requirement.</p>
+
+      <p><strong>Dual-marking requirement.</strong> Any product carrying a 2D barcode on-pack must also carry a traditional linear barcode until 90% of POS scanning solutions can read GS1-compliant 2D barcodes and capture the GTIN. As of mid-2026, that threshold has not been declared met.</p>
+
+      <div class="callout info">
+        <strong>Bottom line for food brands:</strong> If you add a QR code to packaging before 2027, keep the UPC. Ensure on-pack QR codes use GS1 Digital Link structure so they encode your GTIN, not just a website URL.
+      </div>
+
+      <h3>FSMA 204 — Food Traceability Rule</h3>
+
+      <p>Section 204 of FSMA requires additional lot-level recordkeeping for foods on the FDA's Food Traceability List (FTL). Covered foods include fresh produce, shell eggs, nut butters, finfish, crustaceans, and certain ready-to-eat deli items. The rule requires tracking Key Data Elements (KDEs) at each Critical Tracking Event (CTE) — harvesting, cooling, initial packing, shipping, receiving.</p>
+
+      <p><strong>Enforcement date: July 20, 2028.</strong> The original compliance date of January 20, 2026 was extended 30 months by Congressional directive. FDA is directed not to enforce the rule prior to July 20, 2028.</p>
+
+      <div class="callout warn">
+        Most published sources still cite the original January 2026 date. The correct enforcement date is <strong>July 20, 2028</strong> — per Federal Register notice dated August 7, 2025 (Docket No. 2025-14967).
+      </div>
+
+      <!-- TODO: Date-label conventions (Best By / Use By / Sell By / Pack Date) — verify against FDA guidance and retailer preferences before writing -->
+
+      <div class="section-tools">
+        <!-- Cross-link to Recall Blast Radius when that piece ships -->
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------
+         Part 5 — Logistics Numbers
+         ---------------------------------------------------------------- -->
+    <section id="logistics" class="section">
+      <p class="section-label">Part 5</p>
+      <h2>Logistics Numbers</h2>
+
+      <h3>NMFC Freight Class</h3>
+
+      <p>LTL freight class runs from <strong>50</strong> (densest, cheapest to ship per hundredweight) to <strong>500</strong> (lightest or most difficult, most expensive). Four factors determine class: density, handling, stowability, and liability. For most packaged food, density is the determining factor.</p>
+
+      <p><strong>Step 1 — Calculate density:</strong></p>
+      <div class="formula-block">
+        Volume (ft³) = L &times; W &times; H (inches) &divide; 1,728<br>
+        Density (PCF) = Weight (lbs) &divide; Volume (ft³)
+      </div>
+      <p class="formula-example">Example: 30 lb case, 18&Prime; &times; 14&Prime; &times; 10&Prime; &rarr; volume = 1.46 ft³ &rarr; density = 20.5 PCF &rarr; <strong>Class 70</strong></p>
+
+      <p><strong>Step 2 — Look up the class:</strong></p>
+
+      <div class="callout warn">
+        <strong>July 2025 overhaul:</strong> NMFC Docket 2025-1 (effective July 19, 2025) replaced the old 11-tier scale with a new 13-tier scale, adding Classes 50 and 55 for the densest freight. Any freight quote tool or reference guide dated before July 19, 2025 shows incorrect class boundaries.
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Density (lbs/ft³)</th>
+              <th>NMFC Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>50 or greater</td><td><strong>50</strong></td></tr>
+            <tr><td>35 – &lt;50</td><td><strong>55</strong></td></tr>
+            <tr><td>30 – &lt;35</td><td><strong>60</strong></td></tr>
+            <tr><td>22.5 – &lt;30</td><td><strong>65</strong></td></tr>
+            <tr><td>15 – &lt;22.5</td><td><strong>70</strong></td></tr>
+            <tr><td>12 – &lt;15</td><td><strong>85</strong></td></tr>
+            <tr><td>10 – &lt;12</td><td><strong>92.5</strong></td></tr>
+            <tr><td>8 – &lt;10</td><td><strong>100</strong></td></tr>
+            <tr><td>6 – &lt;8</td><td><strong>125</strong></td></tr>
+            <tr><td>4 – &lt;6</td><td><strong>175</strong></td></tr>
+            <tr><td>2 – &lt;4</td><td><strong>250</strong></td></tr>
+            <tr><td>1 – &lt;2</td><td><strong>300</strong></td></tr>
+            <tr><td>Less than 1</td><td><strong>400</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Source: NMFTA Docket 2025-1, effective July 19, 2025 &middot; nmfta.org</p>
+
+      <!-- TODO: DIM weight divisors (139 parcel / 250 LTL) — verify carrier-specific variants before writing -->
+      <!-- TODO: TiHi — verify definition and retailer usage before writing -->
+      <!-- TODO: Case cube formula — verify before writing -->
+
+      <div class="section-tools">
+        <a href="https://lailarallc.com/tools/dimension-weight" class="tool-link">Dimension &amp; Weight Integrity →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       Footer
+       ==================================================================== -->
+  <footer class="site-footer">
+    <span>
+      Built by <a href="https://lailarallc.com">Lailara LLC</a> —
+      data hygiene and analytics consulting for specialty food brands scaling into national retail.
+    </span>
+    <span>
+      <a href="https://lailarallc.com/work">Free tools →</a>
+    </span>
+  </footer>
+
+</body>
+</html>
