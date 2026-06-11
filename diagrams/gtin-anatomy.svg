@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 218"
+     role="img" aria-label="GTIN-14 anatomy diagram showing two rows: a case-level indicator-1 example and a padded GTIN-12 indicator-0 example">
+
+  <rect width="800" height="218" fill="#f5f3ee"/>
+
+  <!-- ────────────────────────────────────────────────────────────
+       ROW 1 — case-level GTIN-14, indicator 1
+       10614140000010 · Cinderhaven Provisions (company prefix 061414)
+       ──────────────────────────────────────────────────────────── -->
+
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="11" fill="#595959" x="400" y="16" text-anchor="middle">
+    10614140000010 · case-level GTIN-14, indicator 1 (Cinderhaven Provisions)
+  </text>
+
+  <!-- Indicator: digit 1, navy -->
+  <rect x="93"  y="24" width="42" height="44" rx="2" fill="#1f2e7a"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#ffffff" x="114" y="52" text-anchor="middle">1</text>
+
+  <!-- Company prefix: 0 6 1 4 1 4, teal -->
+  <rect x="137" y="24" width="42" height="44" rx="2" fill="#158f75"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#ffffff" x="158" y="52" text-anchor="middle">0</text>
+
+  <rect x="181" y="24" width="42" height="44" rx="2" fill="#158f75"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#ffffff" x="202" y="52" text-anchor="middle">6</text>
+
+  <rect x="225" y="24" width="42" height="44" rx="2" fill="#158f75"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#ffffff" x="246" y="52" text-anchor="middle">1</text>
+
+  <rect x="269" y="24" width="42" height="44" rx="2" fill="#158f75"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#ffffff" x="290" y="52" text-anchor="middle">4</text>
+
+  <rect x="313" y="24" width="42" height="44" rx="2" fill="#158f75"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#ffffff" x="334" y="52" text-anchor="middle">1</text>
+
+  <rect x="357" y="24" width="42" height="44" rx="2" fill="#158f75"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#ffffff" x="378" y="52" text-anchor="middle">4</text>
+
+  <!-- Item reference: 0 0 0 0 0 1, light teal -->
+  <rect x="401" y="24" width="42" height="44" rx="2" fill="#b5e4d8"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#333333" x="422" y="52" text-anchor="middle">0</text>
+
+  <rect x="445" y="24" width="42" height="44" rx="2" fill="#b5e4d8"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#333333" x="466" y="52" text-anchor="middle">0</text>
+
+  <rect x="489" y="24" width="42" height="44" rx="2" fill="#b5e4d8"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#333333" x="510" y="52" text-anchor="middle">0</text>
+
+  <rect x="533" y="24" width="42" height="44" rx="2" fill="#b5e4d8"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#333333" x="554" y="52" text-anchor="middle">0</text>
+
+  <rect x="577" y="24" width="42" height="44" rx="2" fill="#b5e4d8"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#333333" x="598" y="52" text-anchor="middle">0</text>
+
+  <rect x="621" y="24" width="42" height="44" rx="2" fill="#b5e4d8"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#333333" x="642" y="52" text-anchor="middle">1</text>
+
+  <!-- Check digit: 0, gridline gray -->
+  <rect x="665" y="24" width="42" height="44" rx="2" fill="#d9d9d9"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#595959" x="686" y="52" text-anchor="middle">0</text>
+
+  <!-- Row 1 bracket lines y=70→74 -->
+  <g stroke="#666666" stroke-width="1" fill="none">
+    <polyline points="93,70 93,74 134,74 134,70"/>
+    <polyline points="137,70 137,74 398,74 398,70"/>
+    <polyline points="401,70 401,74 662,74 662,70"/>
+    <polyline points="665,70 665,74 706,74 706,70"/>
+  </g>
+
+  <!-- Row 1 bracket labels (Playfair Display for labels) -->
+  <text font-family="'Playfair Display',Georgia,'Times New Roman',serif"
+        font-size="11" fill="#333333" x="114" y="88" text-anchor="middle">Indicator</text>
+  <text font-family="'Playfair Display',Georgia,'Times New Roman',serif"
+        font-size="11" fill="#333333" x="268" y="88" text-anchor="middle">GS1 Company Prefix</text>
+  <text font-family="'Playfair Display',Georgia,'Times New Roman',serif"
+        font-size="11" fill="#333333" x="532" y="88" text-anchor="middle">Item Reference</text>
+  <text font-family="'Playfair Display',Georgia,'Times New Roman',serif"
+        font-size="11" fill="#333333" x="686" y="88" text-anchor="middle">Check</text>
+
+  <!-- Prefix length note -->
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="10" font-style="italic" fill="#595959"
+        x="268" y="101" text-anchor="middle">6–10 digits; 6 shown</text>
+
+  <!-- ────────────────────────────────────────────────────────────
+       ROW 2 — padded GTIN-12, indicator 0
+       00614140000099 · same company prefix, indicator 0 = not a true GTIN-14
+       ──────────────────────────────────────────────────────────── -->
+
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="11" fill="#595959" x="400" y="117" text-anchor="middle">
+    00614140000099 · padded GTIN-12 — see callout
+  </text>
+
+  <!-- Indicator: digit 0, warn (orange border, light orange fill) -->
+  <rect x="93"  y="125" width="42" height="44" rx="2"
+        fill="#fdeee0" stroke="#ee8a2a" stroke-width="1.5"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#7a3d10" x="114" y="153" text-anchor="middle">0</text>
+
+  <!-- Company prefix: 0 6 1 4 1 4, dim teal (hk-95) -->
+  <rect x="137" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="158" y="153" text-anchor="middle">0</text>
+
+  <rect x="181" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="202" y="153" text-anchor="middle">6</text>
+
+  <rect x="225" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="246" y="153" text-anchor="middle">1</text>
+
+  <rect x="269" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="290" y="153" text-anchor="middle">4</text>
+
+  <rect x="313" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="334" y="153" text-anchor="middle">1</text>
+
+  <rect x="357" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="378" y="153" text-anchor="middle">4</text>
+
+  <!-- Item reference: 0 0 0 0 0 9, dim teal -->
+  <rect x="401" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="422" y="153" text-anchor="middle">0</text>
+
+  <rect x="445" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="466" y="153" text-anchor="middle">0</text>
+
+  <rect x="489" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="510" y="153" text-anchor="middle">0</text>
+
+  <rect x="533" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="554" y="153" text-anchor="middle">0</text>
+
+  <rect x="577" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="598" y="153" text-anchor="middle">0</text>
+
+  <rect x="621" y="125" width="42" height="44" rx="2" fill="#e4f5f0"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#0e6e5a" x="642" y="153" text-anchor="middle">9</text>
+
+  <!-- Check digit: 9, gray -->
+  <rect x="665" y="125" width="42" height="44" rx="2" fill="#d9d9d9"/>
+  <text font-family="'Courier New',Courier,monospace" font-weight="700"
+        font-size="18" fill="#595959" x="686" y="153" text-anchor="middle">9</text>
+
+  <!-- Row 2 bracket lines y=171→175 -->
+  <g stroke="#666666" stroke-width="1" fill="none">
+    <polyline points="93,171 93,175 134,175 134,171"/>
+    <polyline points="137,171 137,175 398,175 398,171"/>
+    <polyline points="401,171 401,175 662,175 662,171"/>
+    <polyline points="665,171 665,175 706,175 706,171"/>
+  </g>
+
+  <!-- Row 2 note -->
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="10" fill="#595959" x="400" y="192" text-anchor="middle">
+    Indicator &apos;0&apos; — zero-padded GTIN-12 or GTIN-13; not a true GTIN-14. Adding zeros to a shorter GTIN does not create a new identifier.
+  </text>
+
+  <!-- Footer -->
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="10" fill="#b3b3b3" x="400" y="210" text-anchor="middle">
+    Source: GS1 US, An Introduction to the GTIN, Release 2.1 · Cinderhaven company prefix 061414 (synthetic dataset)
+  </text>
+
+</svg>

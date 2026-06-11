@@ -435,13 +435,16 @@ p.footnote {
    ========================================================================== */
 
 @media (max-width: 640px) {
-  body { padding: 32px 16px; }
+  body { padding: 32px 16px; font-size: 15px; }
 
   .brand-name { font-size: 20px; }
   .brand-subtitle { font-size: 12px; }
 
   h1 { font-size: 28px; }
   h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+
+  table { font-size: 13px; }
 
   dl { grid-template-columns: 1fr; gap: 2px 0; }
   dt { padding-bottom: 0; }
@@ -457,6 +460,8 @@ p.footnote {
   @page {
     size: letter;
     margin: 0.6in;
+    @bottom-left { content: "Lailara LLC — lailarallc.com"; font-size: 9pt; color: #595959; }
+    @bottom-right { content: counter(page); font-size: 9pt; color: #595959; }
   }
 
   body {
@@ -470,20 +475,17 @@ p.footnote {
   .tool-link, .section-tools { display: none; }
 
   h1 { font-size: 22pt; }
-  h2 { font-size: 14pt; page-break-after: avoid; }
-  h3 { font-size: 12pt; page-break-after: avoid; }
+  h2 { font-size: 14pt; page-break-after: avoid; break-after: avoid; }
+  h3 { font-size: 12pt; page-break-after: avoid; break-after: avoid; }
 
-  .section { page-break-inside: avoid; }
-  table { page-break-inside: avoid; }
+  .section { page-break-inside: avoid; break-inside: avoid; }
+  table { page-break-inside: avoid; break-inside: avoid; }
+
+  img { max-width: 100%; page-break-inside: avoid; break-inside: avoid; }
 
   .site-footer {
     position: running(footer);
     font-size: 9pt;
     color: #595959;
-  }
-
-  @page {
-    @bottom-left { content: "Lailara LLC — lailarallc.com"; font-size: 9pt; color: #595959; }
-    @bottom-right { content: counter(page); font-size: 9pt; color: #595959; }
   }
 }

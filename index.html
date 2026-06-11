@@ -54,7 +54,9 @@
 
       <h3>GTIN Formats — Four Lengths, One Standard</h3>
 
-      <!-- TODO: Replace text table with GTIN anatomy SVG diagram (diagrams/gtin-anatomy.svg) -->
+      <img src="diagrams/gtin-anatomy.svg"
+           alt="GTIN-14 anatomy: indicator digit, GS1 company prefix, item reference, and check digit. Two rows — case-level indicator-1 example (10614140000010) and padded GTIN-12 indicator-0 example (00614140000099)."
+           width="100%" style="max-width:800px;display:block;margin:20px auto 8px;">
       <div class="table-wrapper">
         <table>
           <thead>
@@ -188,8 +190,8 @@
       <p>An <strong>SSCC (Serial Shipping Container Code) identifies a specific physical pallet or container</strong> in a specific shipment. It's 18 digits, generated per shipment, and appears on the GS1-128 pallet label. Two pallets of the same product have different SSCCs. <!-- TODO: Verify SSCC detail against GS1 GenSpecs --></p>
 
       <div class="section-tools">
-        <a href="https://lailarallc.com/tools/gtin-validator" class="tool-link">GTIN Validator →</a>
-        <a href="https://lailarallc.com/tools/dimension-weight" class="tool-link">Dimension &amp; Weight Integrity →</a>
+        <a href="https://gtin.lailarallc.com" class="tool-link">GTIN Validator →</a>
+        <a href="https://dimensions.lailarallc.com" class="tool-link">Dimension &amp; Weight Integrity →</a>
       </div>
     </section>
 
@@ -206,10 +208,9 @@
       <h2>Syndication</h2>
 
       <h3>How GDSN works</h3>
-      <!-- TODO: Insert GDSN flow diagram (diagrams/gdsn-flow.svg) -->
-      <div class="diagram-placeholder" aria-hidden="true">
-        [GDSN flow diagram — diagrams/gdsn-flow.svg]
-      </div>
+      <img src="diagrams/gdsn-flow.svg"
+           alt="GDSN data flow: supplier publishes to source pool, routed to target pool, delivered to retailer. CIC response returns Received, Synchronized, or Review/Rejected."
+           width="100%" style="max-width:800px;display:block;margin:20px auto 8px;">
       <p>Product data travels through GDSN along a fixed path: a brand publishes a record to a certified data pool, the pool validates and routes it to every subscribed recipient, and each recipient's system sends back a Catalogue Item Confirmation (CIC). GS1 International sets the standards — GTIN formats, GLN registrations, GPC classification codes, mandatory attribute lists — that the pool enforces. Pool operators (Syndigo, Salsify, and others) run the routing infrastructure; the rules inside the pipe come from GS1, not from any pool operator.</p>
       <p>GDSN does not carry pricing, terms, or retailer-specific promotional fields. Those attributes live in separate portal uploads (Supplier One, SVHarbor, KeHE CONNECT) alongside the GDSN-synced record.</p>
 
@@ -239,7 +240,7 @@
             </tr>
             <tr>
               <td><strong>Salsify</strong></td>
-              <td>GS1-certified data pool; operates independently from Syndigo; interoperable with other GDSN pools. Part of Salsify's broader PIM and product experience management platform. 56,000+ GTINs created; 500+ unique destinations reached.</td>
+              <td>GS1-certified data pool; operates independently from Syndigo; interoperable with other GDSN pools. Part of Salsify&rsquo;s broader PIM and product experience management platform, with AI-powered GDSN feedback troubleshooting (FeedbackIQ).</td>
               <td>Kroger: one of three KIA certified providers. No other retailer-specific mandates publicly documented.</td>
               <td class="gotcha">Not publicly available.</td>
             </tr>
@@ -359,7 +360,7 @@
       <p class="footnote">Sources: CIC status definitions &mdash; 1WorldSync Dot Foods GDSN FAQ (1worldsync.com, 2023); SPS Commerce (spscommerce.com/community/articles/gdsn-data-synchronization)</p>
 
       <div class="section-tools">
-        <a href="https://lailarallc.com/tools/item-setup-preflight" class="tool-link">Item Setup Pre-flight &rarr;</a>
+        <a href="https://preflight.lailarallc.com" class="tool-link">Item Setup Pre-flight &rarr;</a>
         <a href="https://lailarallc.com/gs1-sunrise-2027" class="tool-link">GS1 Sunrise 2027 &rarr;</a>
         <a href="https://lailarallc.com/blog/syndigo-vs-1worldsync" class="tool-link">Syndigo / 1WorldSync Guide &rarr;</a>
       </div>
@@ -391,7 +392,7 @@
               <td>Supplier One (supplierone.walmart.com)<br><span style="font-size:12px;color:var(--text-secondary)">Replaced Item 360, September 2024</span></td>
               <td>Each &rarr; Inner/Warehouse Pack &rarr; Case &rarr; Pallet; unique GTIN per level</td>
               <td>Consumer unit (each)</td>
-              <td class="gotcha">Once an item is created in Walmart's catalog, its trade item hierarchy is permanent — an incorrect configuration can't be edited, only rebuilt as a new item, and changing the sellable quantity in a case requires acquiring a brand-new GTIN. Once GDSN-synced, dimensions also lock; corrections must flow through the data pool. (<a href="https://lailarallc.com/tools/dimension-weight" style="color:var(--navy)">Dimension &amp; Weight Integrity &rarr;</a>)</td>
+              <td class="gotcha">Once an item is created in Walmart's catalog, its trade item hierarchy is permanent — an incorrect configuration can't be edited, only rebuilt as a new item, and changing the sellable quantity in a case requires acquiring a brand-new GTIN. Once GDSN-synced, dimensions also lock; corrections must flow through the data pool. (<a href="https://dimensions.lailarallc.com" style="color:var(--navy)">Dimension &amp; Weight Integrity &rarr;</a>)</td>
             </tr>
             <tr>
               <td><strong>Costco</strong></td>
@@ -405,7 +406,7 @@
               <td>Vendor Internet Portal / VIP (vip.wholefoods.com) for cost file maintenance; new item setup via Amazon Grocery Central (grocerycentral.amazon.com)</td>
               <td>Consumer unit; 13-digit barcode required for all packaged products</td>
               <td>Consumer unit (each)</td>
-              <td class="gotcha">—<br><span style="font-size:12px;color:var(--text-secondary);font-style:normal">WFM's US item-setup documentation is supplier-login-gated; no US primary-source gotcha verifiable for this reference.</span></td>
+              <td class="gotcha">Whole Foods gates US item-setup documentation behind supplier login &mdash; verify requirements directly in the portal; no publicly verifiable gotcha is listed here by design.</td>
             </tr>
             <tr>
               <td><strong>UNFI</strong></td>
@@ -435,7 +436,7 @@
       <p class="footnote">Sources: Walmart — Supplier One HelpDocs (supplierone.helpdocs.io, confirmed via search-result text, June 2026) &middot; Costco — Vendor Hub (hub.costco.com) &middot; Whole Foods Market — vip.wholefoods.com; grocerycentral.amazon.com (US portals confirmed; content login-gated) &middot; UNFI — 1WorldSync UNFI GDSN FAQ (updated 2024-02-19) &middot; KeHE — KeHE AOM &amp; GTIN Requirements, corroborated via Presence Marketing (pmidpi.com), 2025 &middot; Kroger — KIA FAQ (thekrogerco.com, April 3, 2025); thekrogerco.com/vendor-suppliers/vendors/retail-vendors/ (June 2026)</p>
 
       <div class="section-tools">
-        <a href="https://lailarallc.com/tools/item-setup-preflight" class="tool-link">Item Setup Pre-flight →</a>
+        <a href="https://preflight.lailarallc.com" class="tool-link">Item Setup Pre-flight →</a>
       </div>
     </section>
 
@@ -528,12 +529,84 @@
       </div>
       <p class="footnote">Source: NMFTA Docket 2025-1, effective July 19, 2025 &middot; nmfta.org</p>
 
-      <!-- TODO: DIM weight divisors (139 parcel / 250 LTL) — verify carrier-specific variants before writing -->
-      <!-- TODO: TiHi — verify definition and retailer usage before writing -->
-      <!-- TODO: Case cube formula — verify before writing -->
+      <h3>DIM Weight Divisors</h3>
+
+      <p>Parcel carriers charge the greater of actual weight or <strong>dimensional weight</strong> (DIM weight) &mdash; the space a package occupies expressed as pounds. The formula:</p>
+
+      <div class="formula-block">
+        DIM Weight (lbs) = L &times; W &times; H (inches) &divide; <em>divisor</em><br>
+        Billable weight = MAX(actual weight, DIM weight)
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Carrier / Service</th>
+              <th>Divisor</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>UPS (account / daily rates)</td>
+              <td><strong>139</strong></td>
+              <td>Ground, 2nd Day Air, Next Day Air</td>
+            </tr>
+            <tr>
+              <td>UPS (retail / walk-in rates)</td>
+              <td>166</td>
+              <td>UPS Store or counter rates without a contract; high-volume shippers can negotiate 139</td>
+            </tr>
+            <tr>
+              <td>FedEx (domestic)</td>
+              <td><strong>139</strong></td>
+              <td>Ground, Home Delivery, Express</td>
+            </tr>
+            <tr>
+              <td>USPS</td>
+              <td>166</td>
+              <td>Priority Mail and Priority Mail Express confirmed; threshold &gt;1&nbsp;ft&sup3; (1,728&nbsp;in&sup3;). USPS Ground Advantage rule varies &mdash; verify at usps.com before relying on this row.</td>
+            </tr>
+            <tr>
+              <td>LTL freight</td>
+              <td>N/A</td>
+              <td>LTL uses density &rarr; freight class, not a DIM divisor &mdash; see NMFC table above</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">UPS and FedEx divisors: corroborated secondary (packcalc.com March 2026, packizon.com) &mdash; ups.com timed out; fedex.com returned 403 during verification. USPS threshold (&gt;1&nbsp;ft&sup3;) confirmed primary via pe.usps.com/text/dmm300/Notice123.htm. Divisors verified June 11, 2026 &middot; carriers revise in annual rate updates (Dec&ndash;Jan cycle) &mdash; reverify after June 2027.</p>
+
+      <div class="callout warn">
+        <strong>August 2025 change (UPS &amp; FedEx):</strong> Effective August 18, 2025, both carriers round every fractional inch <em>up</em> before calculating DIM weight &mdash; 9.1&Prime; becomes 10&Prime;, 5.01&Prime; becomes 6&Prime;. Any packaging sized around fractional-inch clearances now bills at a higher cubic volume. (Supply Chain Dive, citing UPS direct statement, August 2025)
+      </div>
+
+      <h3>TiHi</h3>
+
+      <p><strong>Ti</strong> is the number of cases per layer on a pallet. <strong>Hi</strong> is the number of layers stacked high. Together they define the pallet configuration a retailer expects on inbound shipments.</p>
+
+      <div class="formula-block">
+        Total cases per pallet = Ti &times; Hi
+      </div>
+
+      <p class="formula-example">Example: Ti&thinsp;12, Hi&thinsp;8 &rarr; 96 cases per pallet</p>
+
+      <p>Retailers specify TiHi on purchase orders. Warehouse systems validate the <em>configuration</em> at receiving, not just the case count &mdash; shipping Ti&thinsp;14, Hi&thinsp;5 when the order called for Ti&thinsp;12, Hi&thinsp;6 can trigger a chargeback even when the total case count is identical.</p>
+
+      <h3>Case Cube</h3>
+
+      <p>Case cube is the volume of a master carton in cubic feet, used for warehouse slotting, pallet-build planning, and TiHi calculation.</p>
+
+      <div class="formula-block">
+        Case Cube (ft&sup3;) = L &times; W &times; H (inches) &divide; 1,728
+      </div>
+
+      <p class="formula-example">Example: 18&Prime; &times; 14&Prime; &times; 10&Prime; &rarr; 2,520 &divide; 1,728 = <strong>1.46 ft&sup3;</strong></p>
+      <p class="footnote">1,728 = 12 &times; 12 &times; 12 &mdash; one cubic foot in cubic inches</p>
 
       <div class="section-tools">
-        <a href="https://lailarallc.com/tools/dimension-weight" class="tool-link">Dimension &amp; Weight Integrity →</a>
+        <a href="https://dimensions.lailarallc.com" class="tool-link">Dimension &amp; Weight Integrity →</a>
       </div>
     </section>
 

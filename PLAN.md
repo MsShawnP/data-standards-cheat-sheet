@@ -1,7 +1,7 @@
 # Data Standards Cheat Sheet — PLAN
 
 **Tier:** 4 (lead-gen / reference artifact)
-**Status:** Part 3 closed — Part 2 (Syndication) is the next content block
+**Status:** Parts 1–5 complete · Phase 3 pending
 
 ---
 
@@ -24,9 +24,9 @@ Phase 2 — Content & Verification
 
 - [x] GS1 GenSpecs — GTIN anatomy, indicator digit table, check digit algorithm ✓
 - [x] GS1 Sunrise 2027 — current status, exact requirements, enforcement date ✓
-- [ ] 1WorldSync docs — GDSN attribute list (the ~15 rejection triggers), publication levels
+- [x] GDSN attribute list, provider comparison, publication states ✓ — verified June 11, 2026 (see verification_log.md § Part 2)
 - [x] NMFC tariff — freight class density breakpoints (Docket 2025-1, July 2025) ✓
-- [ ] DIM weight divisors — standard (139) and carrier-specific variants
+- [x] DIM weight divisors — standard (139) and carrier-specific variants ✓ — verified June 11, 2026
 - [x] FSMA 204 — enforcement date July 20, 2028 (extended from Jan 2026 by Congressional directive) ✓
 - [x] Retailer vendor guides — all verified, Part 3 closed June 2026 ✓
   - [x] Walmart — Supplier One (replaced Item 360 Sept 2024), hierarchy, gotcha [confirmed via search-result text]
@@ -39,24 +39,42 @@ Phase 2 — Content & Verification
 **Write content (after verification):**
 
 - [x] Part 1 — Identification ✓
-- [ ] Part 2 — Syndication
+- [x] Part 2 — Syndication ✓ — closed June 11, 2026
 - [x] Part 3 — Retailer Quick-Reference table ✓ — closed June 10, 2026
 - [x] Part 4 — Compliance Horizon (Sunrise 2027 + FSMA 204) ✓
-- [x] Part 5 — Logistics Numbers (NMFC table ✓ · DIM/TiHi/case cube still TODO)
-- [ ] GTIN anatomy SVG diagram
-- [ ] GDSN flow SVG diagram
-- [ ] Cross-links to portfolio tools in each section
+- [x] Part 5 — Logistics Numbers ✓ — closed June 11, 2026
+- [x] GTIN anatomy SVG diagram ✓ — June 11, 2026 (diagrams/gtin-anatomy.svg; two rows: indicator-1 case GTIN 10614140000010, padded GTIN-12 00614140000099; check digits verified via seed_config.py algorithm)
+- [x] GDSN flow SVG diagram ✓ — June 11, 2026 (diagrams/gdsn-flow.svg; CIC states match §2.4 exactly)
+- [x] Cross-links to portfolio tools in each section ✓ — June 11, 2026 (gtin.lailarallc.com, preflight.lailarallc.com, dimensions.lailarallc.com)
 
 ### Phase 3 — Polish & Publish
 
-- [ ] Print CSS review (@page, running footer, SVG rendering)
-- [ ] Mobile layout pass (640px breakpoint)
+- [x] Print CSS review ✓ — June 11, 2026 (merged @page blocks, added img/break-inside rules, SVGs confirmed rendering)
+- [x] Mobile layout pass ✓ — June 11, 2026 (body 15px, h3 16px, table 13px at 375px; SVGs 343px wide)
+- [x] Date-stamp: "Verified June 2026" in page header ✓ (already present)
 - [ ] PDF generation (Python/Quarto — separate session)
-- [ ] Date-stamp: "verified June 2026" in page header
 - [ ] Deploy to standards.lailarallc.com (or path — see DECISIONS.md)
 - [ ] Add to portfolio /work page under Free Tools
 - [ ] Update project-health tracker
 - [ ] LinkedIn post — hook: "Every item setup form you've ever filled out, explained on one page."
+
+---
+
+## Recurring maintenance
+
+- [ ] **DIM divisor re-verification** — annually each January (carriers publish rate updates Dec–Jan)
+  - Re-fetch: ups.com DIM weight page, fedex.com rate guides, pe.usps.com/text/dmm300/Notice123.htm
+  - Also re-verify: USPS Ground Advantage DIM weight status (sources conflicted June 2026 — unresolved)
+  - Update HTML freshness footnote and verification_log.md Part 5 DIM section
+
+---
+
+## Follow-up edits (cross-repo — cannot execute in this project session)
+
+- [ ] **Reverse link: rejection article → Part 2**
+  - File: `~/projects/reference/lailara-blog-engine/blog-posts/2026-06-09-gdsn-attribute-errors-retailer-rejection/article.md`
+  - Section: "Find the mismatches before the pool does" (final section, before the Lailara CTA paragraph)
+  - Add this sentence: "For a reference covering all GDSN rejection attributes, provider comparison, and publication states, see [Part 2 — Syndication](https://standards.lailarallc.com/#syndication) in the Data Standards Cheat Sheet."
 
 ---
 

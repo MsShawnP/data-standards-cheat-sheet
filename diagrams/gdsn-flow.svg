@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 218"
+     role="img" aria-label="GDSN data flow diagram: supplier publishes to source pool, routed to target pool, delivered to retailer, with CIC response returning to supplier">
+  <defs>
+    <!-- Navy arrowhead for forward flow -->
+    <marker id="arrow-navy" markerWidth="8" markerHeight="6"
+            refX="7" refY="3" orient="auto">
+      <polygon points="0,0 0,6 8,3" fill="#1f2e7a"/>
+    </marker>
+    <!-- Gray arrowhead for CIC return (line goes right→left; orient=auto rotates) -->
+    <marker id="arrow-gray" markerWidth="8" markerHeight="6"
+            refX="7" refY="3" orient="auto">
+      <polygon points="0,0 0,6 8,3" fill="#595959"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="218" fill="#f5f3ee"/>
+
+  <!-- ── Nodes ────────────────────────────────────────────────── -->
+
+  <!-- Node 1: Supplier (x=58, y=55, w=120, h=54, center 118,82) -->
+  <rect x="58" y="55" width="120" height="54" rx="2"
+        fill="#e5e8f5" stroke="#1f2e7a" stroke-width="1.5"/>
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="14" font-weight="600" fill="#1f2e7a"
+        x="118" y="86" text-anchor="middle">Supplier</text>
+
+  <!-- Node 2: Source Pool (x=246, y=55) -->
+  <rect x="246" y="55" width="120" height="54" rx="2"
+        fill="#e5e8f5" stroke="#1f2e7a" stroke-width="1.5"/>
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="13" font-weight="600" fill="#1f2e7a"
+        x="306" y="77" text-anchor="middle">Source Pool</text>
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="11" fill="#595959"
+        x="306" y="93" text-anchor="middle">e.g. Syndigo</text>
+
+  <!-- Node 3: Target Pool (x=434, y=55) -->
+  <rect x="434" y="55" width="120" height="54" rx="2"
+        fill="#e5e8f5" stroke="#1f2e7a" stroke-width="1.5"/>
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="13" font-weight="600" fill="#1f2e7a"
+        x="494" y="77" text-anchor="middle">Target Pool</text>
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="11" fill="#595959"
+        x="494" y="93" text-anchor="middle">e.g. Syndigo</text>
+
+  <!-- Node 4: Retailer (x=622, y=55) -->
+  <rect x="622" y="55" width="120" height="54" rx="2"
+        fill="#e5e8f5" stroke="#1f2e7a" stroke-width="1.5"/>
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="13" font-weight="600" fill="#1f2e7a"
+        x="682" y="77" text-anchor="middle">Retailer</text>
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="11" fill="#595959"
+        x="682" y="93" text-anchor="middle">e.g. Kroger</text>
+
+  <!-- ── Forward arrows (y=82) ──────────────────────────────── -->
+
+  <!-- Arrow 1: Publish -->
+  <line x1="179" y1="82" x2="244" y2="82"
+        stroke="#1f2e7a" stroke-width="1.5"
+        marker-end="url(#arrow-navy)"/>
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="11" fill="#333333" x="212" y="73" text-anchor="middle">Publish</text>
+
+  <!-- Arrow 2: Route &amp; validate -->
+  <line x1="367" y1="82" x2="432" y2="82"
+        stroke="#1f2e7a" stroke-width="1.5"
+        marker-end="url(#arrow-navy)"/>
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="11" fill="#333333" x="400" y="73" text-anchor="middle">Route &amp; validate</text>
+
+  <!-- Arrow 3: Deliver -->
+  <line x1="555" y1="82" x2="620" y2="82"
+        stroke="#1f2e7a" stroke-width="1.5"
+        marker-end="url(#arrow-navy)"/>
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="11" fill="#333333" x="588" y="73" text-anchor="middle">Deliver</text>
+
+  <!-- ── CIC return path ────────────────────────────────────── -->
+
+  <!-- Vertical drops from node bottoms to return line at y=143 -->
+  <line x1="682" y1="109" x2="682" y2="143"
+        stroke="#595959" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="118" y1="109" x2="118" y2="143"
+        stroke="#595959" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Horizontal return line, arrowhead at left end (pointing toward supplier) -->
+  <line x1="682" y1="143" x2="121" y2="143"
+        stroke="#595959" stroke-width="1.5" stroke-dasharray="4,2"
+        marker-end="url(#arrow-gray)"/>
+
+  <!-- CIC label -->
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="11" font-style="italic" fill="#595959"
+        x="400" y="161" text-anchor="middle">
+    CIC response: Received · Synchronized · Review / Rejected
+  </text>
+
+  <!-- ── Notes and footer ───────────────────────────────────── -->
+
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="10" fill="#595959" x="400" y="181" text-anchor="middle">
+    Source and target pool may be the same — e.g., Syndigo&#x2192;Syndigo, as Kroger and Harris Teeter require.
+  </text>
+
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="10" fill="#595959" x="400" y="196" text-anchor="middle">
+    GS1 sets GDSN standards · Pool operators run routing infrastructure · Pricing and promotions are not routed via GDSN
+  </text>
+
+  <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
+        font-size="10" fill="#b3b3b3" x="400" y="212" text-anchor="middle">
+    Sources: 1WorldSync Dot Foods GDSN FAQ (1worldsync.com, 2023); SPS Commerce (spscommerce.com)
+  </text>
+
+</svg>
