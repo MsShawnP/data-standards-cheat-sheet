@@ -32,3 +32,17 @@ After verification, fill in each section of index.html in order (Part 1 → 5). 
 ## Nothing Broken
 
 Scaffold only — no logic, no tests needed.
+
+---
+
+## 2026-06-11 17:45
+
+**What changed:** Phase 2 complete — GTIN/GDSN SVGs, DIM source upgrade, subdomain tool links, Phase 3 print/mobile polish
+
+**Why:** All five content parts were done; this session closed the remaining Phase 2 tasks (diagrams, source-tier upgrade for DIM divisors, tool links) and ran the Phase 3 polish pass.
+
+**State:** index.html complete and committed (Parts 1–5, both SVGs wired, all tool links at subdomain URLs). styles.css: print @page merged, img break-inside added, mobile body/h3/table sizes correct. verification_log.md: USPS Ground Advantage conflict documented, DIM sources labeled. USPS Ground Advantage DIM status still unresolved (needs re-fetch of USPS DMM §280 before publishing that row as confirmed).
+
+**Next:** PDF generation via Python/Quarto (separate session), then deploy to standards.lailarallc.com and add to /work portfolio page.
+
+---
