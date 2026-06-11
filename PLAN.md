@@ -52,7 +52,11 @@ Phase 2 — Content & Verification
 - [x] Print CSS review ✓ — June 11, 2026 (merged @page blocks, added img/break-inside rules, SVGs confirmed rendering)
 - [x] Mobile layout pass ✓ — June 11, 2026 (body 15px, h3 16px, table 13px at 375px; SVGs 343px wide)
 - [x] Date-stamp: "Verified June 2026" in page header ✓ (already present)
-- [ ] PDF generation (Python/Quarto — separate session)
+- [x] PDF generation ✓ — June 11, 2026
+  - Renderer: playwright-core + system Chrome 149 (no separate browser download)
+  - Command: `npm run pdf` → `dist/lailara-data-standards-cheat-sheet.pdf`
+  - File size: 605 KB (0.59 MB) — email-safe
+  - Text diff: 7 tokens hidden (TOC, tool links, verified-stamp) — no unintentional content loss
 - [ ] Deploy to standards.lailarallc.com (or path — see DECISIONS.md)
 - [ ] Add to portfolio /work page under Free Tools
 - [ ] Update project-health tracker

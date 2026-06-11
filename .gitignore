@@ -14,9 +14,13 @@ _quarto/
 *_files/
 *.pdf
 
-# Node / static server tooling (if added)
+# Node / static server tooling
 node_modules/
 .parcel-cache/
+package-lock.json
+
+# Generated build artifacts
+dist/screenshots/
 
 # IDE
 .idea/

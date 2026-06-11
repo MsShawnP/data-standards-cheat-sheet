@@ -473,15 +473,27 @@ p.footnote {
 
   .toc { display: none; }
   .tool-link, .section-tools { display: none; }
+  /* Download PDF link is non-functional in PDF; date appears in footer */
+  .verified-stamp { display: none; }
 
   h1 { font-size: 22pt; }
   h2 { font-size: 14pt; page-break-after: avoid; break-after: avoid; }
   h3 { font-size: 12pt; page-break-after: avoid; break-after: avoid; }
 
+  /* Each Part starts on a new page (skip the first section — no leading blank page) */
+  section.section + section.section {
+    page-break-before: always;
+    break-before: always;
+  }
+
+  /* Avoid breaks inside content blocks */
   .section { page-break-inside: avoid; break-inside: avoid; }
   table { page-break-inside: avoid; break-inside: avoid; }
-
+  .callout, .formula-block { page-break-inside: avoid; break-inside: avoid; }
   img { max-width: 100%; page-break-inside: avoid; break-inside: avoid; }
+
+  /* Keep DIM freshness footnote attached to the table above it */
+  .table-wrapper + p.footnote { page-break-before: avoid; break-before: avoid; }
 
   .site-footer {
     position: running(footer);

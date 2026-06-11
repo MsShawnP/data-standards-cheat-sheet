@@ -1,0 +1,26 @@
+{
+  "name": "data-standards-cheat-sheet",
+  "version": "1.0.0",
+  "description": "**Live:** https://standards.lailarallc.com",
+  "main": "index.js",
+  "scripts": {
+    "pdf": "node scripts/render.js pdf",
+    "pdf:gate1": "node scripts/render.js gate1",
+    "pdf:gate2": "node scripts/render.js gate2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MsShawnP/data-standards-cheat-sheet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MsShawnP/data-standards-cheat-sheet/issues"
+  },
+  "homepage": "https://github.com/MsShawnP/data-standards-cheat-sheet#readme",
+  "dependencies": {
+    "playwright-core": "^1.60.0"
+  }
+}
