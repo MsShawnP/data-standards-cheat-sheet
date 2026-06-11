@@ -63,7 +63,7 @@ Maintenance — see Recurring maintenance section
   - Update path: re-copy index.html, styles.css, diagrams/, and dist PDF (as data-standards-cheat-sheet.pdf) on any source change
 - [x] Added to /work page — done in website repo (commit e0f4118), card under 'Compliance Guides'. NOTE: PLAN said 'Free Tools'; card landed under 'Compliance Guides' — placement TBD, separate website edit if it moves.
 - [x] Update project-health tracker ✓ — June 11, 2026 (dep audit: 0 vulnerabilities; next due 2026-08-10)
-- Launch post: drafted in chat, not CC (CC writes weak LinkedIn copy)
+- Launch post: write in chat against the live URL. Global rule: LinkedIn posts are never CC work.
 
 ---
 
