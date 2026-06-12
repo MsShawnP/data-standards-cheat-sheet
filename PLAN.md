@@ -67,6 +67,12 @@ Maintenance — see Recurring maintenance section
 
 ---
 
+## Deferred content (tracked, out of scope for current phase)
+
+- [ ] **Part 4 — Date-label conventions** (Best By / Use By / Sell By / Pack Date) — verify against FDA guidance and retailer preferences before writing. Converted from an inline index.html TODO on June 12, 2026; the page carries no marker for this until the section is scoped.
+
+---
+
 ## Recurring maintenance
 
 - [ ] **DIM divisor re-verification** — annually each January (carriers publish rate updates Dec–Jan)

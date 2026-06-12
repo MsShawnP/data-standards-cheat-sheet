@@ -198,6 +198,24 @@ Last updated: June 10, 2026
 
 ---
 
+# Part 1 — Identification
+
+Last updated: June 12, 2026
+
+## SSCC vs GTIN-14
+
+| Claim | Source | Date | Confidence |
+|---|---|---|---|
+| SSCC is an 18-digit identifier assigned to a logistics unit | gs1us.org/upcs-barcodes-prefixes/serialized-shipping-container-codes — directly fetched: "An SSCC number is an 18-digit identifier assigned to a logistics unit" | June 12, 2026 | **Primary source** |
+| Identifies a specific physical pallet/container, not the product | Same source: "assigned to a logistics unit, which includes any combination of trade items, such as cases, and pallets packaged together for transportation purposes" | June 12, 2026 | **Primary source** |
+| Unique per logistics unit — two pallets of the same product carry different SSCCs | Same source: "Serial Reference: A unique number assigned to each shipping container" | June 12, 2026 | **Primary source** |
+| Encoded in a GS1-128 barcode on the GS1 Logistics (pallet) Label | Same source: "the SSCC is a number typically encoded into a GS1-128 barcode and included on a GS1 Logistics Label" | June 12, 2026 | **Primary source** |
+| Generated per shipment (serial, not reusable like a GTIN) | GS1 US Data Hub help center (gs1us.org/resources/data-hub-help-center/about-the-serial-shipping-container-code-sscc) — serial references not reusable for a minimum of 12 months; confirmed via search-result text | June 12, 2026 | Confirmed via search-result text |
+
+Note: gs1.org/standards/id-keys/sscc returned 403 on direct fetch (consistent with prior gs1.org behavior); gs1us.org page used as primary instead. Resolves the inline SSCC TODO removed from index.html §1 on June 12, 2026.
+
+---
+
 ## Source confidence definitions
 
 | Level | Definition |
