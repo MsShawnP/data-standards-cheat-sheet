@@ -18,6 +18,16 @@ CC-generated LinkedIn copy is generic and misses voice. Launch posts for Lailara
 
 **Do not:** Re-add LinkedIn post tasks to project checklists or ask CC to draft them.
 
+## 2026-06-13 — Ship-and-hold: no expansion, maintenance only
+
+The cheat sheet ships as-is (Parts 1–5). Part 4 (date-label conventions), EDI document-type section, and quarterly refresh cadence are not planned. Maintenance is event-driven (carrier rate changes, regulation updates), not calendar-driven.
+
+**Why:** The piece is complete as a lead-gen reference artifact. Adding sections dilutes focus and creates ongoing verification burden without proportional value. The five existing parts cover the core compliance surface.
+
+**Scope:** All future work on this project. Content additions require an explicit decision to re-open, not just a good idea.
+
+**Do not:** Add new sections, commit to a refresh schedule, or treat deferred items as a backlog. They are parked, not queued.
+
 ## 2026-06-11 — PDF download is plain link; email gate deferred until Buttondown
 
 The PDF at /standards is a plain relative href with no form, no gate, no Formspree endpoint. Fully open.

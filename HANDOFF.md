@@ -73,17 +73,12 @@ Scaffold only — no logic, no tests needed.
 
 ## 2026-06-13
 
-**What changed:** Ship-and-hold decision — project moves to maintenance mode. Tracking-only session, no content or code changes.
+**Started from:** Project shipped and live at lailarallc.com/standards since June 11. Open/deferred items and project-health flags needed closing out.
 
-**Decisions recorded:**
-- Part 4 (date-label conventions): not building. Moved from deferred to "future expansion (not planned)."
-- EDI document-type section and refresh cadence commitment: same — only live if the sheet expands.
-- Project health (tests, code-review, improve): marked N/A — static content page, no application logic.
+**Did:** Ship-and-hold decision — tracking-only session, no content or code changes. Part 4 (date-label conventions), EDI section, and refresh cadence moved to "future expansion (not planned)." Project-health tracker updated (tests/review/improve → n/a). PLAN.md status set to maintenance mode.
 
-**Not touched:** Recurring maintenance (DIM re-verification Jan 2027, USPS Ground Advantage, dep audit Aug 2026). /work card placement (Compliance Guides vs Free Tools) — separate website-repo decision.
+**State:** Source repo clean. All state files updated. Recurring maintenance preserved (DIM Jan 2027, dep audit Aug 2026, USPS Ground Advantage unresolved). /work card placement (Compliance Guides vs Free Tools) still open — separate website-repo decision.
 
-**State:** Source repo clean, no content changes. PLAN.md and HANDOFF.md updated to maintenance mode. project-health.md row updated (tests/review/improve → n/a).
-
-**Next:** Only maintenance tasks remain — DIM re-verification (Jan 2027), dep audit (Aug 2026). /work card placement is a separate website-repo decision.
+**Next:** Maintenance mode. Next touchpoints: dep audit (Aug 2026), DIM re-verification (Jan 2027). No active work unless the sheet expands.
 
 ---
