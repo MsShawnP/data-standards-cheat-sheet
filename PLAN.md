@@ -84,16 +84,13 @@ Maintenance — see Recurring maintenance section
 
 ## Follow-up edits (cross-repo — cannot execute in this project session)
 
-- [ ] **Reverse link: rejection article → Part 2**
-  - File: `~/projects/reference/lailara-blog-engine/blog-posts/2026-06-09-gdsn-attribute-errors-retailer-rejection/article.md`
-  - Section: "Find the mismatches before the pool does" (final section, before the Lailara CTA paragraph)
-  - Add this sentence: "For a reference covering all GDSN rejection attributes, provider comparison, and publication states, see [Part 2 — Syndication](https://standards.lailarallc.com/#syndication) in the Data Standards Cheat Sheet."
+- [x] **Reverse link: rejection article → Part 2** — done in website repo (commit e0f4118, June 11 2026). Sentence added before Lailara CTA in "Find the mismatches before the pool does." URL used: `/standards#syndication` (path-based, not the stale subdomain listed above).
 
 ---
 
 ## Open Questions
 
-- [ ] Subdomain (standards.lailarallc.com) vs path (lailarallc.com/standards) — lean path for SEO authority
-- [ ] Gate PDF or fully open — lean open to maximize sharing
+- [x] Subdomain vs path — RESOLVED: lailarallc.com/standards (path deploy, June 11 2026)
+- [x] Gate PDF or fully open — RESOLVED: fully open, plain download link; email gate deferred until Buttondown is wired (see DECISIONS.md)
 - [ ] EDI document-type section: include or keep in toolkit pieces
 - [ ] Refresh cadence commitment — quarterly?
