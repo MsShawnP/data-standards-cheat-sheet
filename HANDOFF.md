@@ -1,7 +1,7 @@
 # Handoff
 
-**Last session:** 2026-06-10 (Session 1 — scaffold)
-**Phase:** 2 — Content & Verification
+**Last session:** 2026-06-13
+**Phase:** Shipped, maintenance mode
 
 ---
 
@@ -68,5 +68,22 @@ Scaffold only — no logic, no tests needed.
 **State:** Source repo fully clean, Phase 3 complete. Website repo: /standards live, Gate 2 wired; EDI blog post edit + scripts/deploy.js intentionally left uncommitted (separate sessions). PLAN.md status header still says "Phase 2 pending" — stale, not yet updated.
 
 **Next:** LinkedIn launch post in chat against https://lailarallc.com/standards. Then: decide /work card placement (Compliance Guides vs Free Tools). Clean up PLAN.md stale lines (Follow-up edits section done, subdomain URL stale, status header wrong).
+
+---
+
+## 2026-06-13
+
+**What changed:** Ship-and-hold decision — project moves to maintenance mode. Tracking-only session, no content or code changes.
+
+**Decisions recorded:**
+- Part 4 (date-label conventions): not building. Moved from deferred to "future expansion (not planned)."
+- EDI document-type section and refresh cadence commitment: same — only live if the sheet expands.
+- Project health (tests, code-review, improve): marked N/A — static content page, no application logic.
+
+**Not touched:** Recurring maintenance (DIM re-verification Jan 2027, USPS Ground Advantage, dep audit Aug 2026). /work card placement (Compliance Guides vs Free Tools) — separate website-repo decision.
+
+**State:** Source repo clean, no content changes. PLAN.md and HANDOFF.md updated to maintenance mode. project-health.md row updated (tests/review/improve → n/a).
+
+**Next:** Only maintenance tasks remain — DIM re-verification (Jan 2027), dep audit (Aug 2026). /work card placement is a separate website-repo decision.
 
 ---

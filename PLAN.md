@@ -1,7 +1,7 @@
 # Data Standards Cheat Sheet — PLAN
 
 **Tier:** 4 (lead-gen / reference artifact)
-**Status:** Shipped — lailarallc.com/standards · Phase 3 complete · June 11, 2026
+**Status:** Shipped, maintenance mode — lailarallc.com/standards · All phases complete · June 11, 2026
 
 ---
 
@@ -67,9 +67,17 @@ Maintenance — see Recurring maintenance section
 
 ---
 
-## Deferred content (tracked, out of scope for current phase)
+## Possible future expansion (not planned)
 
-- [ ] **Part 4 — Date-label conventions** (Best By / Use By / Sell By / Pack Date) — verify against FDA guidance and retailer preferences before writing. Converted from an inline index.html TODO on June 12, 2026; the page carries no marker for this until the section is scoped.
+These items were considered during build-out and decided ship-and-hold. Revisit only if the sheet expands.
+
+- **Part 4 — Date-label conventions** — decided ship-and-hold, not building. Revisit only if the sheet expands.
+- **EDI document-type section** — decided ship-and-hold. Include here or keep in separate toolkit pieces is moot unless the sheet expands.
+- **Refresh cadence commitment** — no quarterly cadence commitment. Maintenance is event-driven (carrier rate changes, regulation updates) per the Recurring maintenance section.
+
+## Project health — N/A items
+
+Tests, `/ce:code-review`, and `/improve` are N/A for this project — static HTML/CSS/SVG content page with no application logic to test or review.
 
 ---
 
@@ -92,5 +100,5 @@ Maintenance — see Recurring maintenance section
 
 - [x] Subdomain vs path — RESOLVED: lailarallc.com/standards (path deploy, June 11 2026)
 - [x] Gate PDF or fully open — RESOLVED: fully open, plain download link; email gate deferred until Buttondown is wired (see DECISIONS.md)
-- [ ] EDI document-type section: include or keep in toolkit pieces
-- [ ] Refresh cadence commitment — quarterly?
+- [x] EDI document-type section — RESOLVED: ship-and-hold, moved to future expansion (June 13, 2026)
+- [x] Refresh cadence commitment — RESOLVED: no quarterly commitment, event-driven maintenance (June 13, 2026)
