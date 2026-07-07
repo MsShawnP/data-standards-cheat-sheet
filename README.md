@@ -28,4 +28,11 @@ open index.html
 npx serve .
 python -m http.server 8000
 
-# Render the PDF (outputs dist/lailara-data-standards-cheat-sheet.
+# Render the PDF (outputs dist/lailara-data-standards-cheat-sheet.pdf):
+npm install
+npm run pdf
+```
+
+---
+
+Built by [Lailara LLC](https://lailarallc.com) — data hygiene and analytics consulting for specialty food brands scaling into national retail.
