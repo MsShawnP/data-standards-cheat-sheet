@@ -19,14 +19,14 @@
 
   <!-- Node 1: Supplier (x=58, y=55, w=120, h=54, center 118,82) -->
   <rect x="58" y="55" width="120" height="54" rx="2"
-        fill="#e5e8f5" stroke="#1f2e7a" stroke-width="1.5"/>
+        fill="#e8eaf4" stroke="#1f2e7a" stroke-width="1.5"/>
   <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
         font-size="14" font-weight="600" fill="#1f2e7a"
         x="118" y="86" text-anchor="middle">Supplier</text>
 
   <!-- Node 2: Source Pool (x=246, y=55) -->
   <rect x="246" y="55" width="120" height="54" rx="2"
-        fill="#e5e8f5" stroke="#1f2e7a" stroke-width="1.5"/>
+        fill="#e8eaf4" stroke="#1f2e7a" stroke-width="1.5"/>
   <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
         font-size="13" font-weight="600" fill="#1f2e7a"
         x="306" y="77" text-anchor="middle">Source Pool</text>
@@ -36,7 +36,7 @@
 
   <!-- Node 3: Target Pool (x=434, y=55) -->
   <rect x="434" y="55" width="120" height="54" rx="2"
-        fill="#e5e8f5" stroke="#1f2e7a" stroke-width="1.5"/>
+        fill="#e8eaf4" stroke="#1f2e7a" stroke-width="1.5"/>
   <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
         font-size="13" font-weight="600" fill="#1f2e7a"
         x="494" y="77" text-anchor="middle">Target Pool</text>
@@ -46,7 +46,7 @@
 
   <!-- Node 4: Retailer (x=622, y=55) -->
   <rect x="622" y="55" width="120" height="54" rx="2"
-        fill="#e5e8f5" stroke="#1f2e7a" stroke-width="1.5"/>
+        fill="#e8eaf4" stroke="#1f2e7a" stroke-width="1.5"/>
   <text font-family="'Source Sans 3','Helvetica Neue',Arial,sans-serif"
         font-size="13" font-weight="600" fill="#1f2e7a"
         x="682" y="77" text-anchor="middle">Retailer</text>

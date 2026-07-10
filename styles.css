@@ -67,9 +67,9 @@
   --status-pass-text: #0e6e5a;
   --status-warn-bg:  #fdeee0;
   --status-warn-text: #7a3d10;
-  --status-fail-bg:  #fde8e7;
+  --status-fail-bg:  #fce8e7;
   --status-fail-text: #7a0906;
-  --status-info-bg:  #e5e8f5;
+  --status-info-bg:  #e8eaf4;
   --status-info-text: #1f2e7a;
 
   /* Typography */
